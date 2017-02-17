@@ -16,11 +16,11 @@ class GoPiggy(pigo.Pigo):
     def __init__(self):
         print("Your piggy has be instantiated!")
         # Our servo turns the sensor. What angle of the servo( ) method sets it straight?
-        self.MIDPOINT = 90
+        self.MIDPOINT = 85
         # YOU DECIDE: How close can an object get (cm) before we have to stop?
         self.STOP_DIST = 30
         # YOU DECIDE: What left motor power helps straighten your fwd()?
-        self.LEFT_SPEED = 140
+        self.LEFT_SPEED = 135
         # YOU DECIDE: What left motor power helps straighten your fwd()?
         self.RIGHT_SPEED = 140
         # This one isn't capitalized because it changes during runtime, the others don't
@@ -63,12 +63,43 @@ class GoPiggy(pigo.Pigo):
     def dance(self):
         print("Piggy dance")
         ##### WRITE YOUR FIRST PROJECT HERE
+        for x in range(3):
+            self.shimmy()
+            #self.cool()
+
+    def head(self):
+        for x in range(2):
+            self.servo(10)
+            self.servo(160)
+            self.servo(80)
+            self.servo(90)
+        self.servo(self.MIDPOINT)
+
+    def shimmy(self):
+        self.servo(135)
+        self.encr(6)
+        self.encf(10)
+        self.servo(35)
+        self.encl(6)
+        self.encb(10)
+        self.encr(6)
+        self.encf(10)
+        self.encl(20)
+        self.servo(10)
+        self.encf(5)
+        self.encb(5)
+        self.head()
+
+    def cool(self):
+        self.encr(30)
+        self.encl(30)
+        self.servo(80)
+        self.servo(90)
 
 
-    ########################
-    ### MAIN LOGIC LOOP - the core algorithm of my navigation
-    ### (kind of a big deal)
-    ########################
+
+    ######################### ### MAIN LOGIC LOOP - the core algorithm of my navigation
+    ### (kind of a big deal###    ########################
 
     def nav(self):
         print("-----------! NAVIGATION ACTIVATED !------------\n")
