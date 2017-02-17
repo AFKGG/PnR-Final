@@ -95,6 +95,8 @@ class GoPiggy(pigo.Pigo):
         self.encl(30)
         self.servo(80)
         self.servo(90)
+        self.encf(50)
+        self.encf()
 
 
 
