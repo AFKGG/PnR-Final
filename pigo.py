@@ -122,6 +122,11 @@ class Pigo(object):
         servo(val)
         time.sleep(.1)
 
+    def dist(self):
+        measurement = us_dist(15)
+        time.sleep(.05)
+        print('I see something ' + str(measurement) + "cm away")
+        return measurement
     # DUMP ALL VALUES IN THE SCAN ARRAY
     def flush_scan(self):
         self.scan = [None]*180
