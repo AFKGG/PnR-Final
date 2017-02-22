@@ -61,11 +61,12 @@ class GoPiggy(pigo.Pigo):
         menu.get(ans, [None, error])[1]()
 
     def sweep(self):
-        for x in range(20,160,2):
+        for x in range(self.MIDPOINT - 60, self.MIDPOINT + 60, 2):
             self.servo(x)
             if self.dist() < 30:
                 print("AAAAAAAHHHHHH")
-                break
+                return
+            self.dance()
 
 
     #YOU DECIDE: How does your GoPiggy dance?
@@ -78,7 +79,7 @@ class GoPiggy(pigo.Pigo):
 
     def head(self):
         for x in range(2):
-            self.servo(10)
+            self.servo(20)
             self.servo(160)
             self.servo(80)
             self.servo(90)
@@ -106,7 +107,10 @@ class GoPiggy(pigo.Pigo):
         self.servo(90)
         self.encf(50)
         self.encf()
-
+        for x in range(160, 80, -10):
+            self.servo(160)
+        for x in range(20, 80, 10):
+            self.servo(20)
 
 
     ######################### ### MAIN LOGIC LOOP - the core algorithm of my navigation
