@@ -66,6 +66,7 @@ class GoPiggy(pigo.Pigo):
             self.scan[x] = self.dist()
         print("Here's what I saw")
         print(self.scan)
+        print("Here's how I usually print this:")
         for x in self.scan:
             print(x)
 
