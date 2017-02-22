@@ -63,10 +63,22 @@ class GoPiggy(pigo.Pigo):
     def sweep(self):
         for x in range(self.MIDPOINT - 60, self.MIDPOINT + 60, 2):
             self.servo(x)
-            if self.dist() < 30:
-                print("AAAAAAAHHHHHH")
-                return
-            self.dance()
+            self.scan[x] = self.dist()
+        print("Here's what I saw")
+        print(self.scan)
+        for x in self.scan:
+            print(x)
+
+
+    def safety_dance(self):
+        for y in range(3):
+            for x in range(self.MIDPOINT - 60, self.MIDPOINT + 60, 2):
+                self.servo(x)
+                if self.dist() < 30:
+                    print("AAAAAAAHHHHHH")
+                    return
+            self.encR(7)
+        self.dance()
 
 
     #YOU DECIDE: How does your GoPiggy dance?
@@ -87,18 +99,21 @@ class GoPiggy(pigo.Pigo):
 
     def shimmy(self):
         self.servo(135)
-        self.encR(6)
+        self.encR(7)
         self.encF(10)
         self.servo(35)
-        self.encL(6)
+        self.encL(7)
         self.encB(10)
-        self.encR(6)
+        self.encR(7)
         self.encF(10)
         self.encL(20)
         self.servo(10)
         self.encF(5)
         self.encB(5)
         self.head()
+        for x in range(2):
+            self.encF(10)
+            self.encB(10)
 
     def cool(self):
         self.encR(30)
@@ -106,7 +121,7 @@ class GoPiggy(pigo.Pigo):
         self.servo(80)
         self.servo(90)
         self.encF(50)
-        self.encF()
+        self.encL(36)
         for x in range(160, 80, -10):
             self.servo(160)
         for x in range(20, 80, 10):
