@@ -107,10 +107,11 @@ class GoPiggy(pigo.Pigo):
         self.restore_heading()
 
     def total_obstacles(self):
-            counter = 0
-            for x in range(4):
-                counter += self.count_obstacle
-                self.encR(7)
+        counter = 0
+        for x in range(4):
+            counter += self.count_obstacles()
+            self.encR(7)
+        print('Total number of obstacles in this scan: ' + str(counter))
 
     def restore_heading(self):
         print("Now I will turn back to the starting position.")
