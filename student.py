@@ -109,7 +109,7 @@ class GoPiggy(pigo.Pigo):
     def total_obstacles(self):
         counter = 0
         for x in range(4):
-            counter += self.count_obstacles()
+            counter += self.count_obstacle()
             self.encR(7)
         print('Total number of obstacles in this scan: ' + str(counter))
 
