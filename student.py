@@ -108,9 +108,8 @@ class GoPiggy(pigo.Pigo):
 
     def total_obstacles(self):
             counter = 0
-            counter += self.count_obstacle
             for x in range(4):
-                self.count_obstacle()
+                counter += self.count_obstacle
                 self.encR(7)
 
     def restore_heading(self):
