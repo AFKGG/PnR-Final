@@ -51,6 +51,7 @@ class GoPiggy(pigo.Pigo):
                 "t": ("Turn test", self.turn_test),
                 "s": ("Check status", self.status),
                 "o": ("Count Obstacles", self.count_obstacle),
+                "r": ("Total Obstacles", self.total_obstacles),
                 "q": ("Quit", quit)
                 }
         # loop and print the menu...
@@ -90,6 +91,8 @@ class GoPiggy(pigo.Pigo):
         print('Total number of obstacles in this scan: ' + str(counter))
         return counter
 
+
+
     def turn_test(self):
         while True:
             ans = raw_input('Turn right, left or stop? (r/l/s): ')
@@ -102,6 +105,13 @@ class GoPiggy(pigo.Pigo):
             else:
                 break
         self.restore_heading()
+
+    def total_obstacles(self):
+            counter = 0
+            counter += self.counter_obstcle
+            for x in range(4):
+                self.counter_obstcle
+                self.encR(7)
 
     def restore_heading(self):
         print("Now I will turn back to the starting position.")
