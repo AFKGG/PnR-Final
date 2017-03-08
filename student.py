@@ -208,11 +208,8 @@ class GoPiggy(pigo.Pigo):
                 self.stop
 
     def cruise(self):
-        self.fwd()
         while self.is_clear():
-            time.sleep(.1)
-        self.stop()
-        self.encB(3)
+            self.encF(10)
 
     def encR(self, enc):
         pigo.Pigo.encR(self, enc)
