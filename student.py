@@ -120,8 +120,6 @@ class GoPiggy(pigo.Pigo):
         elif self.turn_track < 0:
             self.encR(abs(self.turn_track))
 
-
-
     def sweep(self):
         for x in range(self.MIDPOINT - 60, self.MIDPOINT + 60, 2):
             self.servo(x)
@@ -131,7 +129,6 @@ class GoPiggy(pigo.Pigo):
         print("Here's how I usually print this:")
         for x in self.scan:
             print(x)
-
 
     def safety_dance(self):
         for y in range(3):
@@ -144,7 +141,7 @@ class GoPiggy(pigo.Pigo):
         self.dance()
 
 
-    #YOU DECIDE: How does your GoPiggy dance?
+    # YOU DECIDE: How does your GoPiggy dance?
     def dance(self):
         print("Piggy dance")
         ##### WRITE YOUR FIRST PROJECT HERE
@@ -199,6 +196,21 @@ class GoPiggy(pigo.Pigo):
         print("[ Press CTRL + C to stop me, then run stop.py ]\n")
         print("-----------! NAVIGATION ACTIVATED !------------\n")
         # this is the loop part of the "main logic loop"
+        while True:
+            if self.is_clear():
+                self.cruise()
+            answer = self.choose_path()
+            if answer == "left":
+                self.encL(5)
+            elif answer == "right":
+                self.encR(5)
+
+    def cruise(self):
+        self.fwd()
+        while self.is_clear():
+            time.sleep(.1)
+        self.stop()
+        self.encB(3)
 
     def encR(self, enc):
         pigo.Pigo.encR(self, enc)
