@@ -201,7 +201,7 @@ class GoPiggy(pigo.Pigo):
             if self.is_clear():
                 self.encF(15)
                 count += 1
-                if count > 3 and self.turn_track != 0:
+                if count >= 2 and self.turn_track != 0:
                     self.restore_heading()
                     count = 0
             answer = self.choose_path()
