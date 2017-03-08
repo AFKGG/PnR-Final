@@ -204,6 +204,8 @@ class GoPiggy(pigo.Pigo):
                 self.encL(5)
             elif answer == "right":
                 self.encR(5)
+            else:
+                self.stop
 
     def cruise(self):
         self.fwd()
