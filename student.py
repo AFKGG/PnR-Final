@@ -204,12 +204,10 @@ class GoPiggy(pigo.Pigo):
                 self.encL(5)
             elif answer == "right":
                 self.encR(5)
-            else:
-                self.stop
 
     def cruise(self):
         while self.is_clear():
-            self.encF(10)
+            self.encF(15)
 
     def encR(self, enc):
         pigo.Pigo.encR(self, enc)
@@ -232,4 +230,8 @@ def quit():
 ##################################################################
 ######## The app starts right here when we instantiate our GoPiggy
 
-g = GoPiggy()
+try:
+    g = GoPiggy()
+except (KeyboardInterrupt, SystemExit):
+    from gopigo import *
+    stop()
