@@ -199,16 +199,19 @@ class GoPiggy(pigo.Pigo):
         count = 0
         while True:
             if self.is_clear():
-                self.encF(15)
+                self.encF(10)
                 count += 1
                 if count >= 2 and self.turn_track != 0:
+                    self.encF(5)
                     self.restore_heading()
                     count = 0
             answer = self.choose_path()
             if answer == "left":
                 self.encL(5)
+                self.encF(10)
             elif answer == "right":
                 self.encR(5)
+                self.encF(10)
 
     def encR(self, enc):
         pigo.Pigo.encR(self, enc)
