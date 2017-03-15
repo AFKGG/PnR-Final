@@ -199,11 +199,12 @@ class GoPiggy(pigo.Pigo):
         count = 0
         while True:
             if self.is_clear():
-                self.encF(10)
+                self.count_obstacle()
+                self.encF(13)
                 count += 1
                 if count >= 2 and self.turn_track != 0:
                     # Moving forward before restore heading which creates distance from the previous obstacle
-                    self.encF(3)
+                    self.encF(5)
                     self.restore_heading()
                     count = 0
             answer = self.choose_path()
