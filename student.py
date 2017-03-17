@@ -210,10 +210,8 @@ class GoPiggy(pigo.Pigo):
             answer = self.choose_path()
             if answer == "left":
                 self.encL(5)
-                self.encF(2)
             elif answer == "right":
                 self.encR(5)
-                self.encF(2)
 
     def encR(self, enc):
         pigo.Pigo.encR(self, enc)
