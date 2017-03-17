@@ -199,7 +199,6 @@ class GoPiggy(pigo.Pigo):
         count = 0
         while True:
             if self.is_clear():
-                self.count_obstacle()
                 self.encF(13)
                 count += 1
                 if count >= 2 and self.turn_track != 0:
