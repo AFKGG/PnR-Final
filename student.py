@@ -242,7 +242,7 @@ class GoPiggy(pigo.Pigo):
         self.turn_track -= enc
 
 ####################################################
-############### STATIC FUNCTIONS
+############### STATIC FUNCTIONS ###################
 
 def error():
     print('Error in input')
