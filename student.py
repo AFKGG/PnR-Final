@@ -209,15 +209,16 @@ class GoPiggy(pigo.Pigo):
             answer = self.choose_path()
             if answer == "left":
                 self.encL(5)
+                self.maneuver()
             elif answer == "right":
                 self.encR(5)
-            self.maneuver()
+                self.maneuver()
 
     def maneuver(self):
         # I need to check my left side
         if self.turn_track > 0:
             while self.is_clear():
-                self.encF(8)
+                self.encF(10)
                 self.servo(self.MIDPOINT + 60)
                 if self.dist() > self.STOP_DIST + 20:
                     self.restore_heading()
