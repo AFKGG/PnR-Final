@@ -209,9 +209,11 @@ class GoPiggy(pigo.Pigo):
             answer = self.choose_path()
             if answer == "left":
                 self.encL(5)
+                self.encF(2)
                 self.maneuver()
             elif answer == "right":
                 self.encR(5)
+                self.encF(2)
                 self.maneuver()
 
     def maneuver(self):
