@@ -196,17 +196,22 @@ class GoPiggy(pigo.Pigo):
         print("[ Press CTRL + C to stop me, then run stop.py ]\n")
         print("-----------! NAVIGATION ACTIVATED !------------\n")
         # this is the loop part of the "main logic loop"
-        count = 0
+        #count = 0
         while True:
             if self.is_clear():
+                print("Looks clear, pulsing forward")
                 self.encF(15)
+                '''
                 count += 1
                 if count >= 2 and self.turn_track != 0:
+                    print("Count is now " + str(count) + ", restoring heading")
                     # Moving forward before restore heading which creates distance from the previous obstacle
                     self.encF(5)
                     self.restore_heading()
                     count = 0
+                '''
             answer = self.choose_path()
+            print("Choose path has told me to go: " + answer)
             if answer == "left":
                 self.encL(5)
                 self.encF(2)
@@ -223,6 +228,7 @@ class GoPiggy(pigo.Pigo):
                 self.encF(10)
                 self.servo(self.MIDPOINT + 60)
                 if self.dist() > self.STOP_DIST + 20:
+                    self.encF(5)
                     self.restore_heading()
                     return
                 self.servo(self.MIDPOINT)
@@ -231,6 +237,7 @@ class GoPiggy(pigo.Pigo):
                 self.encF(10)
                 self.servo(self.MIDPOINT - 60)
                 if self.dist() > self.STOP_DIST + 20:
+                    self.encF(5)
                     self.restore_heading()
                     return
                 self.servo(self.MIDPOINT)
