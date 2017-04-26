@@ -15,7 +15,7 @@ class Pigo(object):
         self.MIDPOINT = 90
         self.STOP_DIST = 20
         self.RIGHT_SPEED = 200
-        self.LEFT_SPEED = 195
+        self.LEFT_SPEED = 200
         self.scan = [None] * 180
 
         # this makes sure the parent handler doesn't take over student's
@@ -157,7 +157,7 @@ class Pigo(object):
 
     def is_clear(self):
         print("Running the is_clear method.")
-        for x in range((self.MIDPOINT - 27), (self.MIDPOINT + 27), 6):
+        for x in range((self.MIDPOINT - 25), (self.MIDPOINT + 25), 6):
             servo(x)
             time.sleep(.1)
             scan1 = us_dist(15)
