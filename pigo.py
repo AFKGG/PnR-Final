@@ -15,7 +15,7 @@ class Pigo(object):
         self.MIDPOINT = 90
         self.STOP_DIST = 28
         self.RIGHT_SPEED = 200
-        self.LEFT_SPEED = 200
+        self.LEFT_SPEED = 195
         self.scan = [None] * 180
 
         # this makes sure the parent handler doesn't take over student's
