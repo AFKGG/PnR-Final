@@ -210,6 +210,7 @@ class GoPiggy(pigo.Pigo):
                     self.restore_heading()
                     count = 0
                 '''
+            # Choose path
             answer = self.choose_path()
             print("Choose path has told me to go: " + answer)
             if answer == "left":
@@ -232,6 +233,7 @@ class GoPiggy(pigo.Pigo):
                     self.restore_heading()
                     return
                 self.servo(self.MIDPOINT)
+        # Check left side
         else:
             while self.is_clear():
                 self.encF(10)
