@@ -18,7 +18,7 @@ class GoPiggy(pigo.Pigo):
         # Our servo turns the sensor. What angle of the servo( ) method sets it straight?
         self.MIDPOINT = 85
         # YOU DECIDE: How close can an object get (cm) before we have to stop?
-        self.STOP_DIST = 30
+        self.STOP_DIST = 28
         # YOU DECIDE: What left motor power helps straighten your fwd()?
         self.LEFT_SPEED = 135
         # YOU DECIDE: What left motor power helps straighten your fwd()?
@@ -200,7 +200,7 @@ class GoPiggy(pigo.Pigo):
         while True:
             if self.is_clear():
                 print("Looks clear, pulsing forward")
-                self.encF(20)
+                self.encF(17)
                 '''
                 count += 1
                 if count >= 2 and self.turn_track != 0:
