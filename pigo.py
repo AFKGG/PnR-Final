@@ -13,7 +13,7 @@ class Pigo(object):
     def __init__(self):
 
         self.MIDPOINT = 90
-        self.STOP_DIST = 25
+        self.STOP_DIST = 30
         self.RIGHT_SPEED = 200
         self.LEFT_SPEED = 200
         self.scan = [None] * 180
