@@ -201,15 +201,13 @@ class GoPiggy(pigo.Pigo):
             if self.is_clear():
                 print("Looks clear, pulsing forward")
                 self.encF(15)
-                '''
+                # Avoid being stuck at the corner
                 count += 1
                 if count >= 2 and self.turn_track != 0:
                     print("Count is now " + str(count) + ", restoring heading")
                     # Moving forward before restore heading which creates distance from the previous obstacle
-                    self.encF(5)
                     self.restore_heading()
                     count = 0
-                '''
             # Choose path
             answer = self.choose_path()
             print("Choose path has told me to go: " + answer)
