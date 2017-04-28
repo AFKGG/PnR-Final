@@ -196,7 +196,7 @@ class GoPiggy(pigo.Pigo):
         print("[ Press CTRL + C to stop me, then run stop.py ]\n")
         print("-----------! NAVIGATION ACTIVATED !------------\n")
         # this is the loop part of the "main logic loop"
-        #count = 0
+        count = 0
         while True:
             if self.is_clear():
                 print("Looks clear, pulsing forward")
