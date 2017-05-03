@@ -226,6 +226,7 @@ class GoPiggy(pigo.Pigo):
             while self.is_clear():
                 self.encF(10)
                 self.servo(self.MIDPOINT + 60)
+                # Restore heading if clear
                 if self.dist() > self.STOP_DIST + 20:
                     self.encF(5)
                     self.restore_heading()
@@ -236,6 +237,7 @@ class GoPiggy(pigo.Pigo):
             while self.is_clear():
                 self.encF(10)
                 self.servo(self.MIDPOINT - 60)
+                # Restore heading if clear
                 if self.dist() > self.STOP_DIST + 20:
                     self.encF(5)
                     self.restore_heading()
