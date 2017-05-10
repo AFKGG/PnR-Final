@@ -217,6 +217,7 @@ class GoPiggy(pigo.Pigo):
                     count = 0
             # Choose path
             answer = self.choose_path()
+            logging.info("Choose path has told me to go: " + answer)
             print("Choose path has told me to go: " + answer)
             if answer == "left":
                 self.encL(5)
