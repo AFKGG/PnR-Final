@@ -1,7 +1,7 @@
 import pigo
 import time
 import random
-
+import logging
 '''
 MR. A's Final Project Student Helper
 '''
@@ -14,6 +14,11 @@ class GoPiggy(pigo.Pigo):
     ########################
 
     def __init__(self):
+        LOG_LEVEL = logging.INFO
+        # LOG_LEVEL = logging.DEBUG
+        LOG_FILE = "/home/pi/PnR-Final/log_robot.log"
+        LOG_FORMAT = "%(asctime)s %(levelname)s %(message)s"
+        logging.basicConfig(filename=LOG_FILE, format=LOG_FORMAT, level=LOG_LEVEL)
         print("Your piggy has be instantiated!")
         # Our servo turns the sensor. What angle of the servo( ) method sets it straight?
         self.MIDPOINT = 85
@@ -192,6 +197,7 @@ class GoPiggy(pigo.Pigo):
     ### (kind of a big deal###    ########################
 
     def nav(self):
+        logging.debug("Starting the nav method")
         print("-----------! NAVIGATION ACTIVATED !------------\n")
         print("[ Press CTRL + C to stop me, then run stop.py ]\n")
         print("-----------! NAVIGATION ACTIVATED !------------\n")
@@ -204,6 +210,7 @@ class GoPiggy(pigo.Pigo):
                 # Avoid being stuck at the corner
                 count += 1
                 if count >= 4 and self.turn_track != 0:
+                    logging.info("Restoring heading, count at: ")
                     print("Count is now " + str(count) + ", restoring heading")
                     # Moving forward before restore heading which creates distance from the previous obstacle
                     self.restore_heading()
@@ -230,6 +237,7 @@ class GoPiggy(pigo.Pigo):
                 if self.dist() > self.STOP_DIST + 20:
                     self.encF(5)
                     self.restore_heading()
+                    logging.info("")
                     return
                 self.servo(self.MIDPOINT)
         # Check left side
@@ -271,3 +279,5 @@ try:
 except (KeyboardInterrupt, SystemExit):
     from gopigo import *
     stop()
+except Exception as ee:
+    logging.error(ee.__str__())

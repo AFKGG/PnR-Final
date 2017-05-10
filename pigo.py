@@ -2,6 +2,7 @@
 
 from gopigo import *
 import time
+import logging
 
 ##########################################################
 #################### PIGO PARENT CLASS
@@ -192,11 +193,13 @@ class Pigo(object):
                 avgRight += self.scan[x]
         avgRight /= 60
         print('The average dist on the right is '+str(avgRight)+'cm')
+        logging.info('The average dist on the right is '+str(avgRight)+'cm')
         for x in range(self.MIDPOINT, self.MIDPOINT+60):
             if self.scan[x]:
                 avgLeft += self.scan[x]
         avgLeft /= 60
         print('The average dist on the left is ' + str(avgLeft) + 'cm')
+        logging.info('The average dist on the left is ' + str(avgLeft) + 'cm')
         if avgRight > avgLeft:
             return "right"
         else:
@@ -209,6 +212,7 @@ class Pigo(object):
         servo(self.MIDPOINT)
         time.sleep(0.05)
         disable_servo()
+
 
     def calibrate(self):
         print("Calibrating...")
