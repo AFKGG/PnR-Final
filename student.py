@@ -233,6 +233,7 @@ class GoPiggy(pigo.Pigo):
 
     def maneuver(self):
         logging.debug("Start maneuver")
+        print("Start maneuver")
         # I need to check my left side
         if self.turn_track > 0:
             while self.is_clear():
