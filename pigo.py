@@ -103,8 +103,9 @@ class Pigo(object):
         fwd()
         time.sleep(1 * (enc / 18)+.4)
 
+
     def encR(self, enc):
-        logging("Turning right")
+        logging.debug("Turning right")
         print('Moving '+str((enc/18))+' rotation(s) right')
         enc_tgt(1, 1, enc)
         right_rot()
@@ -116,6 +117,7 @@ class Pigo(object):
         enc_tgt(1, 1, enc)
         left_rot()
         time.sleep(1*(enc/18)+.4)
+
 
 
     def encB(self, enc):
