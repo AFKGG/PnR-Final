@@ -181,10 +181,8 @@ class Pigo(object):
                 scan1 = (scan1 + scan2 + scan3) / 3
             self.scan[x] = scan1
             print("Degree: " + str(x) + ", distance: " + str(scan1))
-            logging.debug("Degree: " + str(x) + ", distance: " + str(scan1))
             if scan1 < self.STOP_DIST:
                 print("Doesn't look clear to me")
-                logging.debug("Doesn't look clear to me")
                 return False
         return True
 
