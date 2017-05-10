@@ -97,18 +97,21 @@ class Pigo(object):
         fwd()
 
     def encF(self, enc):
+        logging.debug("Moving foward")
         print('Moving '+str((enc/18))+' rotation(s) forward')
         enc_tgt(1, 1, enc)
         fwd()
         time.sleep(1 * (enc / 18)+.4)
 
     def encR(self, enc):
+        logging("Turning right")
         print('Moving '+str((enc/18))+' rotation(s) right')
         enc_tgt(1, 1, enc)
         right_rot()
         time.sleep(1 * (enc / 18)+.4)
 
     def encL(self, enc):
+        logging.debug("Turning left")
         print('Moving '+str((enc/18))+' rotation(s) left')
         enc_tgt(1, 1, enc)
         left_rot()
@@ -116,6 +119,7 @@ class Pigo(object):
 
 
     def encB(self, enc):
+        logging.debug('Moving '+str((enc/18))+ ' rotations(s) backwards')
         print('Moving '+str((enc/18))+ ' rotations(s) backwards')
         enc_tgt(1, 1, enc)
         bwd()
@@ -157,6 +161,7 @@ class Pigo(object):
             time.sleep(.01)
 
     def is_clear(self):
+        logging.debug("Running the is_clear method.")
         print("Running the is_clear method.")
         for x in range((self.MIDPOINT - 25), (self.MIDPOINT + 25), 6):
             servo(x)
