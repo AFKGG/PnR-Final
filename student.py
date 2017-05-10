@@ -123,10 +123,8 @@ class GoPiggy(pigo.Pigo):
         print("Now I will turn back to the starting position.")
         if self.turn_track > 0:
             self.encL(abs(self.turn_track))
-            logging.info("Turn back left")
         elif self.turn_track < 0:
             self.encR(abs(self.turn_track))
-            logging.info("Turn back right")
 
     def sweep(self):
         for x in range(self.MIDPOINT - 60, self.MIDPOINT + 60, 2):
