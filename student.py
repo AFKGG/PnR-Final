@@ -210,7 +210,7 @@ class GoPiggy(pigo.Pigo):
                 # Avoid being stuck at the corner
                 count += 1
                 if count >= 4 and self.turn_track != 0:
-                    logging.info("Restoring heading, count at: ")
+                    logging.info("Count is now " + str(count) + ", restoring heading")
                     print("Count is now " + str(count) + ", restoring heading")
                     # Moving forward before restore heading which creates distance from the previous obstacle
                     self.restore_heading()
