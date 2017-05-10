@@ -238,7 +238,7 @@ class GoPiggy(pigo.Pigo):
                 if self.dist() > self.STOP_DIST + 20:
                     self.encF(5)
                     self.restore_heading()
-                    logging.info("")
+                    logging.info("Restore heading")
                     return
                 self.servo(self.MIDPOINT)
         # Check left side
