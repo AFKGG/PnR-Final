@@ -229,6 +229,7 @@ class GoPiggy(pigo.Pigo):
                 self.maneuver()
 
     def maneuver(self):
+        logging.debug("Start maneuver")
         # I need to check my left side
         if self.turn_track > 0:
             while self.is_clear():
@@ -250,6 +251,7 @@ class GoPiggy(pigo.Pigo):
                 if self.dist() > self.STOP_DIST + 20:
                     self.encF(5)
                     self.restore_heading()
+                    logging.info("Restore heading")
                     return
                 self.servo(self.MIDPOINT)
 
