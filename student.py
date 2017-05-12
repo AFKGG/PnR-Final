@@ -222,11 +222,11 @@ class GoPiggy(pigo.Pigo):
             logging.info("Choose path has told me to go: " + answer)
             print("Choose path has told me to go: " + answer)
             if answer == "left":
-                self.encL(6)
+                self.encL(8)
                 self.encF(2)
                 self.maneuver()
             elif answer == "right":
-                self.encR(5)
+                self.encR(7)
                 self.encF(2)
                 self.maneuver()
 
