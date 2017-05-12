@@ -206,6 +206,7 @@ class GoPiggy(pigo.Pigo):
         count = 0
         while True:
             if self.is_clear():
+                logging.info("Looks clear, pulsing forward")
                 print("Looks clear, pulsing forward")
                 self.encF(15)
                 # Avoid being stuck at the corner
@@ -221,7 +222,7 @@ class GoPiggy(pigo.Pigo):
             logging.info("Choose path has told me to go: " + answer)
             print("Choose path has told me to go: " + answer)
             if answer == "left":
-                self.encL(5)
+                self.encL(6)
                 self.encF(2)
                 self.maneuver()
             elif answer == "right":
